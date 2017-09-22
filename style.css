@@ -1,0 +1,232 @@
+/*Tile Flipping Functionality
+Author: Jeff Bass
+Author URI: http://jeffbasswebdev.com
+Description: JS/CSS functionality enabling images to flip on click and reveal
+more information
+Version: 1.0
+License: MIT license copyright 2017 Jeff Bass Design & Development */
+
+/*  [Table of Contents]
+
+1. General Body
+2. T-shirt calculator
+3. Sticker calculator
+==============================================================================*/
+
+/*
+1. General Body
+==============================================================================*/
+html,body{
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+.wrapper{
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  margin: auto;
+}
+body{
+  padding: 0;
+  overflow-x: hidden;
+}
+img{
+  width: 100%;
+  height: auto;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  color: #3399cc;
+}
+.container{
+  display: inline-block;
+  width: 100%;
+  max-width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 5vw;
+}
+.clearfix::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*
+2. T-shirt Calculator
+==============================================================================*/
+.t-shirt button, .sticker button{
+  font-size: 0.75em;
+  color: #ffffff;
+  background-color: #006699;
+  border: 2px solid black;
+  width: 100%;
+}
+.t-shirt button a, .sticker button a{
+  color: #ffffff;
+}
+.t-shirt button a:hover, .sticker button a:hover{
+  color: #666666;
+  text-decoration: none;
+}
+td, th{
+  padding: 5px;
+  border: 1px solid grey;
+}
+th{
+  font-weight: bold;
+}
+.garment-cost-box td:hover{
+  background-color: black;
+  color: #ffffff;
+}
+.selected{
+  background-color: black;
+  color: #ffffff;
+}
+.printing table{
+  display: none;
+  width: 100%;
+}
+.printing table td{
+  padding: 10px;
+}
+.printing table td:hover{
+  background-color: black;
+  color: #ffffff;
+}
+/*The following code is all to get rid of the border around the Setup Costs table:*/
+table {
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 1px solid grey;
+}
+table tr:first-child th {
+  border-top: 0;
+}
+table tr:first-child td{
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
+table tr:last-child th{
+  border-bottom: 0;
+}
+.setup-box table{
+  font-size: 0.75em;
+}
+.setup-list input{
+  display: inline-block;
+}
+.header{
+  text-align: center;
+}
+#price{
+  font-size: 1em;
+}
+.price-box sup{
+  font-size: 1em;
+}
+.price-box h3{
+  font-size: 2em;
+  text-align: left;
+}
+.price-box{
+  right: 0;
+}
+.btn{
+  border-radius: 0px;
+}
+.t-shirt button, .sticker button{
+  font-size: 1.5em;
+}
+.form-control{
+  border-radius: 0px;
+  border: 2px solid black;
+}
+
+@media screen and (min-width: 789px){
+  .t-shirt p{
+    font-size: 1.5em;
+  }
+  .quantity-text p{
+    font-size: 1em;
+    padding-top: 15px;
+  }
+  .t-shirt button, .sticker button{
+    font-size: 1em;
+  }
+  .sticker p{
+    font-size: 1.5em;
+  }
+  .price-box{
+    vertical-align: bottom;
+  }
+  .price-box h3{
+    text-align: left;
+  }
+  .setup-box table{
+    font-size: 1em;
+  }
+  .setup-box label{
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .printing .dropdown{
+    display: none;
+  }
+  #size-dropdown{
+    display: none;
+  }
+  .printing table{
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 1200px ){
+  .printing table td{
+    padding: 20px;
+  }
+  .t-shirt button, .sticker button{
+    font-size: 1.5em;
+  }
+}
+/*
+3. Sticker Calculator
+==============================================================================*/
+#sticker-size-list{
+  display: none;
+}
+.sticker{
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+.sticker-calc-box{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media screen and (min-width: 1500px){
+  .sticker-calculator{
+    margin-top: -70px;
+  }
+}

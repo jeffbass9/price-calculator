@@ -1,0 +1,264 @@
+<!DOCTYPE=html>
+<html>
+  <head>
+    <meta charset= "UTF-8">
+    <title>
+      Price Calculator
+    </title>
+
+    <meta name="description" content='Price Calculator'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://use.typekit.net/gyy6rdw.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  </head>
+
+  <body>
+    <!-- main content area -->
+      <div class="wrapper">
+
+        <div class="t-shirt clearfix">
+
+          <div class="col-xs-12">
+            <h1>
+              Sample T-shirt Ordering Calculator
+            </h1>
+          </div>
+
+            <div class="t-shirt setup-table content col-xs-12 col-md-6">
+
+              <div class="t-shirt-options">
+                <div class="setup-box">
+                  <h2>Setup Costs</h2>
+                  $25 screen setup fee (50% off for re-orders)
+
+                  <div class="checkbox setup-list">
+                    <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <label>
+                            <input class="setup-costs" type="checkbox" value="10" /> Ink Color Change (same screen with different colors)
+                          </label>
+                        </td>
+                        <td>$10 per screen</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label>
+                            <input class="setup-costs" type="checkbox" value="25" /> Pantone Color Match
+                          </label>
+                        </td>
+                        <td>$25 per color</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label>
+                            <input class="setup-costs" type="checkbox" value="30" /> Sampling
+                          </label>
+                        </td>
+                        <td>$30 per hour</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label>
+                            <input class="setup-costs" type="checkbox" value="5" /> Name Drops
+                          </label>
+                        </td>
+                        <td>$5 each</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label>
+                            <input class="setup-costs" type="checkbox" value="30" /> Art Preparation (30 minutes free)
+                          </label>
+                        </td>
+                        <td>$30 per hour</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label>
+                            <input class="rush-order" type="checkbox" value="1.25" /> Rush Orders (48 Hour turn around)
+                          </label>
+                        </td>
+                        <td>25% add-on</td>
+                      </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                  <!-- End checkbox -->
+                </div>
+                <!-- End setup box -->
+              </div>
+              <!-- End t-shirt options -->
+            </div>
+            <!-- End setup table -->
+
+            <div class="t-shirt quantity-text col-xs-12 col-md-6">
+              <h2>Printing</h2>
+
+              <div class="printing">
+
+                  <table>
+                    <tr>
+                      <th>Quantity</th>
+                      <th>1 Color</th>
+                      <th>2 Color</th>
+                      <th>3 Color</th>
+                      <th>4 Color</th>
+                      <th>5 Color</th>
+                      <th>6 Color</th>
+                    </tr>
+                    <tr>
+                      <th class="quantity">12-29</th>
+                      <td>$2.50</td>
+                      <td>$2.75</td>
+                      <td>$3.00</td>
+                      <td>$3.25</td>
+                      <td>$3.75</td>
+                      <td>$4.25</td>
+                    </tr>
+                    <tr>
+                      <th class="quantity">30-74</th>
+                      <td>$1.50</td>
+                      <td>$1.75</td>
+                      <td>$2.00</td>
+                      <td>$2.25</td>
+                      <td>$2.75</td>
+                      <td>$3.25</td>
+                    </tr>
+                    <tr>
+                      <th class="quantity">75-149</th>
+                      <td>$1.00</td>
+                      <td>$1.25</td>
+                      <td>$1.50</td>
+                      <td>$1.75</td>
+                      <td>$2.25</td>
+                      <td>$2.75</td>
+                    </tr>
+                    <tr>
+                      <th class="quantity">150-299</th>
+                      <td>$0.90</td>
+                      <td>$1.15</td>
+                      <td>$1.40</td>
+                      <td>$1.65</td>
+                      <td>$1.90</td>
+                      <td>$2.15</td>
+                    </tr>
+                    <tr>
+                      <th class="quantity">300-500</th>
+                      <td>$0.85</td>
+                      <td>$1.10</td>
+                      <td>$1.35</td>
+                      <td>$1.60</td>
+                      <td>$1.85</td>
+                      <td>$2.10</td>
+                    </tr>
+                  </table>
+
+                  <div class="dropdown mobile-print-calculator">
+                    <h3>Number of Colors</h3>
+                      <select id="color-list" class="form-control">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                        <option value=6>6</option>
+                      </select>
+                  </div>
+
+                  <div class="dropdown mobile-print-calculator">
+                    <h3>Quantity</h3>
+                      <select id="printing-quantity-list" class="form-control">
+                        <option value=1>12-29</option>
+                        <option value=2>30-74</option>
+                        <option value=3>75-149</option>
+                        <option value=4>150-299</option>
+                        <option value=5>300-500</option>
+                      </select>
+                  </div>
+
+              </div>
+              <!-- End printing -->
+              <div class="price-box">
+                <h3>Total Printing Project Estimate = $<span id="price">0</span></h3>
+              </div>
+            </div>
+            <!-- End t-shirt -->
+
+        </div>
+            <!-- End main-content -->
+            <hr>
+
+            <div class="sticker clearfix">
+
+              <div class="col-xs-12">
+                <h1>
+                  Sample Sticker Ordering Calculator
+                </h1>
+              </div>
+
+                  <div class="sticker-calculator col-xs-12 col-md-6">
+                        <div class="shape-box sticker-calc-element dropdown">
+                          <h3>Shape</h3>
+                          <select id="sticker-shape-list" class="form-control" name="sticker-shape-list">
+                            <option value="1">Die Cut</option>
+                            <option value="2">Square</option>
+                            <option value="3">Bumper</option>
+                            <option value="4">Decals</option>
+                          </select>
+                        </div>
+
+                        <div class="material-box sticker-calc-element dropdown">
+                          <h3>Material</h3>
+                          <select id="material-list" class="form-control" name="material-list">
+                            <option value="1">White Vinyl</option>
+                            <option value="2">Transparent Vinyl</option>
+                          </select>
+                        </div>
+
+                        <div class="sticker-size-list sticker-calc-element dropdown">
+                          <h3>Size</h3>
+                          <select id="size-list" class="form-control" name="size-list">
+                            <option value="1">2" X 2"</option>
+                            <option value="2">3" X 3"</option>
+                            <option value="3">4" X 4"</option>
+                            <option value="4">5" X 5"</option>
+                          </select>
+                        </div>
+                        <!-- End sticker-size-list -->
+                        <div class="quantity-box sticker-calc-element dropdown">
+                          <h3>Quantity</h3>
+                            <select id="quantity-list" class="form-control" name="quantity-list">
+                              <option value="50">50</option>
+                              <option value="100">100</option>
+                              <option value="200">200</option>
+                              <option value="300">300</option>
+                              <option value="500">500</option>
+                              <option value="1000">1,000</option>
+                              <option value="2000">2,000</option>
+                              <option value="3000">3,000</option>
+                              <option value="5000">5,000</option>
+                            </select>
+                        </div>
+                      <!-- End quantity-box -->
+                      <div class="price-box">
+                        <h3>Total Sticker Project Estimate = $<span id="sticker-price">0</span></h3>
+                      </div>
+                    </div>
+                    <!-- End sticker calculator -->
+                  </div>
+                  <!-- End sticker -->
+    </div>
+    <!-- End wrapper -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+  </body>
+
+</html>
