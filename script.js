@@ -1,4 +1,4 @@
-
+//Add and remove highlight effect on printing color/quantity table
 $(".printing").find("tr:nth-of-type(2) td:nth-of-type(1)").addClass("selected");
 
 $(".printing").find("td").click(function(){
@@ -66,114 +66,128 @@ $(".printing").find("td").click(function(){
     function printingCalculator(){
       var printColors = $("#color-list").val();
       var quantityText = $("#printing-quantity-list option:selected").text();
-      var quantity = quantityText.substring(0, quantityText.indexOf('-'));
+      var quantityNumber = quantityText.substring(0, quantityText.indexOf('-'));
+      var quantity = parseInt(quantityNumber);
       var colorPrice;
 
       if(printColors == 1){
-        if(quantity == 12){
-          colorPrice = 2.5;
-        }
-        else if(quantity == 30){
-          colorPrice = 1.5;
-        }
-        else if(quantity == 75){
-          colorPrice = 1;
-        }
-        else if(quantity == 150){
-          colorPrice = 0.9;
-        }
-        else if(quantity == 300){
-          colorPrice = 0.85;
+        switch(quantity){
+          case 12:
+            colorPrice = 2.5;
+            break;
+          case 30:
+            colorPrice = 1.5;
+            break;
+          case 75:
+            colorPrice = 1;
+            break;
+          case 150:
+            colorPrice = 0.9;
+            break;
+          case 300:
+            colorPrice = 0.85;
+            break;
         }
       }
       else if(printColors == 2){
-        if(quantity == 12){
-          colorPrice = 2.75;
-        }
-        else if(quantity == 30){
-          colorPrice = 1.75;
-        }
-        else if(quantity == 75){
-          colorPrice = 1.25;
-        }
-        else if(quantity == 150){
-          colorPrice = 1.15;
-        }
-        else if(quantity == 300){
-          colorPrice = 1.10;
+        switch(quantity){
+          case 12:
+            colorPrice = 2.75;
+            break;
+          case 30:
+            colorPrice = 1.75;
+            break;
+          case 75:
+            colorPrice = 1.25;
+            break;
+          case 150:
+            colorPrice = 1.15;
+            break;
+          case 300:
+            colorPrice = 1.10;
+            break;
         }
       }
       else if(printColors == 3){
-        if(quantity == 12){
-          colorPrice = 3;
-        }
-        else if(quantity == 30){
-          colorPrice = 2;
-        }
-        else if(quantity == 75){
-          colorPrice = 1.5;
-        }
-        else if(quantity == 150){
-          colorPrice = 1.4;
-        }
-        else if(quantity == 300){
-          colorPrice = 1.35;
+        switch(quantity){
+          case 12:
+            colorPrice = 3;
+            break;
+          case 30:
+            colorPrice = 2;
+            break;
+          case 75:
+            colorPrice = 1.5;
+            break;
+          case 150:
+            colorPrice = 1.4;
+            break;
+          case 300:
+            colorPrice = 1.35;
+            break;
         }
       }
       else if(printColors == 4){
-        if(quantity == 12){
-          colorPrice = 3.25;
-        }
-        else if(quantity == 30){
-          colorPrice = 2.25;
-        }
-        else if(quantity == 75){
-          colorPrice = 1.75;
-        }
-        else if(quantity == 150){
-          colorPrice = 1.65;
-        }
-        else if(quantity == 300){
-          colorPrice = 1.6;
+        switch(quantity){
+          case 12:
+            colorPrice = 3.25;
+            break;
+          case 30:
+            colorPrice = 2.25;
+            break;
+          case 75:
+            colorPrice = 1.75;
+            break;
+          case 150:
+            colorPrice = 1.65;
+            break;
+          case 300:
+            colorPrice = 1.6;
+            break;
         }
       }
       else if(printColors == 5){
-        if(quantity == 12){
-          colorPrice = 3.75;
-        }
-        else if(quantity == 30){
-          colorPrice = 2.75;
-        }
-        else if(quantity == 75){
-          colorPrice = 2.25;
-        }
-        else if(quantity == 150){
-          colorPrice = 1.9;
-        }
-        else if(quantity == 300){
-          colorPrice = 1.85;
+        switch(quantity){
+          case 12:
+            colorPrice = 3.75;
+            break;
+          case 30:
+            colorPrice = 2.75;
+            break;
+          case 75:
+            colorPrice = 2.25;
+            break;
+          case 150:
+            colorPrice = 1.9;
+            break;
+          case 300:
+            colorPrice = 1.85;
+            break;
         }
       }
       else if(printColors == 6){
-        if(quantity == 12){
-          colorPrice = 4.25;
-        }
-        else if(quantity == 30){
-          colorPrice = 3.25;
-        }
-        else if(quantity == 75){
-          colorPrice = 2.75;
-        }
-        else if(quantity == 150){
-          colorPrice = 2.15;
-        }
-        else if(quantity == 300){
-          colorPrice = 2.10;
+        switch(quantity){
+          case 12:
+            colorPrice = 4.25;
+            break;
+          case 30:
+            colorPrice = 3.25;
+            break;
+          case 75:
+            colorPrice = 2.75;
+            break;
+          case 150:
+            colorPrice = 2.15;
+            break;
+          case 300:
+            colorPrice = 2.10;
+            break;
         }
       }
       printingTotal = ((colorPrice + garmentCost) * quantity);
       printingPrice();
     };
+
     //Run the Printing Calculator when the page loads
     printingCalculator();
     //Run the Printing Calculator every time a quantity value is changed
@@ -190,8 +204,10 @@ function stickerPriceCalculator(){
     var stickerShape = $("#sticker-shape-list").val();
     var stickerSize = $("#size-list").val();
     var stickerMaterial = $("#material-list").val();
-    var stickerQuantity = $("#quantity-list").val();
-    var stickerPrice = 0;
+    var stickerQuantityVal = $("#quantity-list").val();
+    var stickerQuantity = parseInt(stickerQuantityVal);
+    var stickerPrice;
+
 
     function returnStickerDefaults(){
       $("#size-list option:nth-of-type(1)").text('2" X 2"');
@@ -205,6 +221,7 @@ function stickerPriceCalculator(){
         $("#size-list").append('<option value=4>5" X 5"</option">')
       }
 
+      //Set quantity list values 1-9
       $("#quantity-list option:nth-of-type(1)").text("50").val(50);
       $("#quantity-list option:nth-of-type(2)").text("100").val(100);
       $("#quantity-list option:nth-of-type(3)").text("200").val(200);
@@ -214,6 +231,7 @@ function stickerPriceCalculator(){
       $("#quantity-list option:nth-of-type(7)").text("2000").val(2000);
       $("#quantity-list option:nth-of-type(8)").text("3000").val(3000);
       $("#quantity-list option:nth-of-type(9)").text("5000").val(5000);
+      //Remove quantity list value 10
       $("#quantity-list option:nth-of-type(10)").remove();
     }
 
@@ -222,124 +240,132 @@ function stickerPriceCalculator(){
       returnStickerDefaults();
       // If 2 X 2
       if(stickerSize == 1){
-        if(stickerQuantity == 50){
-          var stickerPrice = 55;
-        }
-        else if(stickerQuantity == 100){
-          var stickerPrice = 65;
-        }
-        else if(stickerQuantity == 200){
-          var stickerPrice = 85;
-        }
-        else if(stickerQuantity == 300){
-          var stickerPrice = 100;
-        }
-        else if(stickerQuantity == 500){
-          var stickerPrice = 135;
-        }
-        else if(stickerQuantity == 1000){
-          var stickerPrice = 205;
-        }
-        else if(stickerQuantity == 2000){
-          var stickerPrice = 330;
-        }
-        else if(stickerQuantity == 3000){
-          var stickerPrice = 440;
-        }
-        else if(stickerQuantity == 5000){
-          var stickerPrice = 640;
+        switch(stickerQuantity){
+          case 50:
+            stickerPrice = 55;
+            break;
+          case 100:
+            stickerPrice = 65;
+            break;
+          case 200:
+            stickerPrice = 85;
+            break;
+          case 300:
+            stickerPrice = 100;
+            break;
+          case 500:
+            stickerPrice = 135;
+            break;
+          case 1000:
+            stickerPrice = 205;
+            break;
+          case 2000:
+            stickerPrice = 330;
+            break;
+          case 3000:
+            stickerPrice = 440;
+            break;
+          case 5000:
+            stickerPrice = 640;
+            break;
         }
       }
       // If 3 X 3
       else if(stickerSize == 2){
-        if(stickerQuantity == 50){
-          var stickerPrice = 65;
-        }
-        else if(stickerQuantity == 100){
-          var stickerPrice = 85;
-        }
-        else if(stickerQuantity == 200){
-          var stickerPrice = 120;
-        }
-        else if(stickerQuantity == 300){
-          var stickerPrice = 150;
-        }
-        else if(stickerQuantity == 500){
-          var stickerPrice = 210;
-        }
-        else if(stickerQuantity == 1000){
-          var stickerPrice = 335;
-        }
-        else if(stickerQuantity == 2000){
-          var stickerPrice = 555;
-        }
-        else if(stickerQuantity == 3000){
-          var stickerPrice = 755;
-        }
-        else if(stickerQuantity == 5000){
-          var stickerPrice = 1125;
+        switch(stickerQuantity){
+          case 50:
+            stickerPrice = 65;
+            break;
+          case 100:
+            stickerPrice = 85;
+            break;
+          case 200:
+            stickerPrice = 120;
+            break;
+          case 300:
+            stickerPrice = 150;
+            break;
+          case 500:
+            stickerPrice = 210;
+            break;
+          case 1000:
+            stickerPrice = 335;
+            break;
+          case 2000:
+            stickerPrice = 555;
+            break;
+          case 3000:
+            stickerPrice = 755;
+            break;
+          case 5000:
+            stickerPrice = 1125;
+            break;
         }
       }
       // If 4 X 4
       else if(stickerSize == 3){
-        if(stickerQuantity == 50){
-          var stickerPrice = 80;
+        switch(stickerQuantity){
+          case 50:
+            stickerPrice = 80;
+            break;
+          case 100:
+            stickerPrice = 110;
+            break;
+          case 200:
+            stickerPrice = 165;
+            break;
+          case 300:
+            stickerPrice = 210;
+            break;
+          case 500:
+            stickerPrice = 300;
+            break;
+          case 1000:
+            stickerPrice = 495;
+            break;
+          case 2000:
+            stickerPrice = 840;
+            break;
+          case 3000:
+            stickerPrice = 1155;
+            break;
+          case 5000:
+            stickerPrice = 1725;
+            break;
         }
-        else if(stickerQuantity == 100){
-          var stickerPrice = 110;
-        }
-        else if(stickerQuantity == 200){
-          var stickerPrice = 165;
-        }
-        else if(stickerQuantity == 300){
-          var stickerPrice = 210;
-        }
-        else if(stickerQuantity == 500){
-          var stickerPrice = 300;
-        }
-        else if(stickerQuantity == 1000){
-          var stickerPrice = 495;
-        }
-        else if(stickerQuantity == 2000){
-          var stickerPrice = 840;
-        }
-        else if(stickerQuantity == 3000){
-          var stickerPrice = 1155;
-        }
-        else if(stickerQuantity == 5000){
-          var stickerPrice = 1725;
-        }
-    }
+      }
       // If 5 X 5
       else if(stickerSize == 4){
-        if(stickerQuantity == 50){
-          var stickerPrice = 95;
+        switch(stickerQuantity){
+          case 50:
+            stickerPrice = 95;
+            break;
+          case 100:
+            stickerPrice = 140;
+            break;
+          case 200:
+            stickerPrice = 215;
+            break;
+          case 300:
+            stickerPrice = 280;
+            break;
+          case 500:
+            stickerPrice = 400;
+            break;
+          case 1000:
+            stickerPrice = 685;
+            break;
+          case 2000:
+            stickerPrice = 1175;
+            break;
+          case 3000:
+            stickerPrice = 1615;
+            break;
+          case 5000:
+            stickerPrice = 2430;
+            break;
         }
-        else if(stickerQuantity == 100){
-          var stickerPrice = 140;
-        }
-        else if(stickerQuantity == 200){
-          var stickerPrice = 215;
-        }
-        else if(stickerQuantity == 300){
-          var stickerPrice = 280;
-        }
-        else if(stickerQuantity == 500){
-          var stickerPrice = 400;
-        }
-        else if(stickerQuantity == 1000){
-          var stickerPrice = 685;
-        }
-        else if(stickerQuantity == 2000){
-          var stickerPrice = 1175;
-        }
-        else if(stickerQuantity == 3000){
-          var stickerPrice = 1615;
-        }
-        else if(stickerQuantity == 5000){
-          var stickerPrice = 2430;
-        }
-    }
+      }
   }
   // end Die Cut options
 
@@ -348,122 +374,130 @@ function stickerPriceCalculator(){
     returnStickerDefaults();
     // If 2 X 2
     if(stickerSize == 1){
-      if(stickerQuantity == 50){
-        var stickerPrice = 50;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 60;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 80;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 90;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 120;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 180;
-      }
-      else if(stickerQuantity == 2000){
-        var stickerPrice = 280;
-      }
-      else if(stickerQuantity == 3000){
-        var stickerPrice = 370;
-      }
-      else if(stickerQuantity == 5000){
-        var stickerPrice = 530;
+      switch(stickerQuantity){
+        case 50:
+          stickerPrice = 50;
+          break;
+        case 100:
+          stickerPrice = 60;
+          break;
+        case 200:
+          stickerPrice = 80;
+          break;
+        case 300:
+          stickerPrice = 90;
+          break;
+        case 500:
+          stickerPrice = 120;
+          break;
+        case 1000:
+          stickerPrice = 180;
+          break;
+        case 2000:
+          stickerPrice = 280;
+          break;
+        case 3000:
+          stickerPrice = 370;
+          break;
+        case 5000:
+          stickerPrice = 530;
+          break;
       }
     }
     // If 3 X 3
     else if(stickerSize == 2){
-      if(stickerQuantity == 50){
-        var stickerPrice = 60;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 75;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 100;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 130;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 175;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 275;
-      }
-      else if(stickerQuantity == 2000){
-        var stickerPrice = 450;
-      }
-      else if(stickerQuantity == 3000){
-        var stickerPrice = 605;
-      }
-      else if(stickerQuantity == 5000){
-        var stickerPrice = 890;
+      switch(stickerQuantity){
+        case 50:
+          stickerPrice = 60;
+          break;
+        case 100:
+          stickerPrice = 75;
+          break;
+        case 200:
+          stickerPrice = 100;
+          break;
+        case 300:
+          stickerPrice = 130;
+          break;
+        case 500:
+          stickerPrice = 175;
+          break;
+        case 1000:
+          stickerPrice = 275;
+          break;
+        case 2000:
+          stickerPrice = 450;
+          break;
+        case 3000:
+          stickerPrice = 605;
+          break;
+        case 5000:
+          stickerPrice = 890;
+          break;
       }
     }
     // If 4 X 4
     else if(stickerSize == 3){
-      if(stickerQuantity == 50){
-        var stickerPrice = 70;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 90;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 135;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 170;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 240;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 390;
-      }
-      else if(stickerQuantity == 2000){
-        var stickerPrice = 655;
-      }
-      else if(stickerQuantity == 3000){
-        var stickerPrice = 895;
-      }
-      else if(stickerQuantity == 5000){
-        var stickerPrice = 1390;
+      switch(stickerQuantity){
+        case 50:
+          stickerPrice = 70;
+          break;
+        case 100:
+          stickerPrice = 90;
+          break;
+        case 200:
+          stickerPrice = 135;
+          break;
+        case 300:
+          stickerPrice = 170;
+          break;
+        case 500:
+          stickerPrice = 240;
+          break;
+        case 1000:
+          stickerPrice = 390;
+          break;
+        case 2000:
+          stickerPrice = 655;
+          break;
+        case 3000:
+          stickerPrice = 895;
+          break;
+        case 5000:
+          stickerPrice = 1390;
+          break;
       }
     }
     // If 5 X 5
     else if(stickerSize == 4){
-      if(stickerQuantity == 50){
-        var stickerPrice = 80;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 115;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 170;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 225;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 320;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 530;
-      }
-      else if(stickerQuantity == 2000){
-        var stickerPrice = 900;
-      }
-      else if(stickerQuantity == 3000){
-        var stickerPrice = 1280;
-      }
-      else if(stickerQuantity == 5000){
-        var stickerPrice = 2090;
+      switch(stickerQuantity){
+        case 50:
+          stickerPrice = 80;
+          break;
+        case 100:
+          stickerPrice = 115;
+          break;
+        case 200:
+          stickerPrice = 170;
+          break;
+        case 300:
+          stickerPrice = 225;
+          break;
+        case 500:
+          stickerPrice = 320;
+          break;
+        case 1000:
+          stickerPrice = 530;
+          break;
+        case 2000:
+          stickerPrice = 900;
+          break;
+        case 3000:
+          stickerPrice = 1280;
+          break;
+        case 5000:
+          stickerPrice = 2090;
+          break;
       }
     }
   }
@@ -471,130 +505,136 @@ function stickerPriceCalculator(){
 
   //Begin Bumper options
   else if(stickerShape == 3){
-  // Change size dropdown text
-  function bumperSizes (){
-    $("#size-list option[value=1]").text('7.5" X 3.75"');
-    $("#size-list option[value=2]").text('11.5" X 3"');
-    $("#size-list option[value=3]").text('15" X 3.75"');
-    $("#size-list option[value=4]").remove();
-  };
-  bumperSizes();
+    // Change size dropdown text
+    function bumperSizes (){
+      $("#size-list option[value=1]").text('7.5" X 3.75"');
+      $("#size-list option[value=2]").text('11.5" X 3"');
+      $("#size-list option[value=3]").text('15" X 3.75"');
+      $("#size-list option[value=4]").remove();
+    };
+    bumperSizes();
 
-  //Change quantity dropdown text
-  function bumperQuantities (){
-    $("#quantity-list option:nth-of-type(1)").text("10").val(10);
-    $("#quantity-list option:nth-of-type(2)").text("50").val(50);
-    $("#quantity-list option:nth-of-type(3)").text("100").val(100);
-    $("#quantity-list option:nth-of-type(4)").text("200").val(200);
-    $("#quantity-list option:nth-of-type(5)").text("300").val(300);
-    $("#quantity-list option:nth-of-type(6)").text("500").val(500);
-    $("#quantity-list option:nth-of-type(7)").text("1000").val(1000);
-    $("#quantity-list option:nth-of-type(8)").text("2000").val(2000);
-    $("#quantity-list option:nth-of-type(9)").text("3000").val(3000);
-    $("#quantity-list").append("<option value=5000>5,000</option>");
-  }
+    //Change quantity dropdown text
+    function bumperQuantities (){
+      $("#quantity-list option:nth-of-type(1)").text("10").val(10);
+      $("#quantity-list option:nth-of-type(2)").text("50").val(50);
+      $("#quantity-list option:nth-of-type(3)").text("100").val(100);
+      $("#quantity-list option:nth-of-type(4)").text("200").val(200);
+      $("#quantity-list option:nth-of-type(5)").text("300").val(300);
+      $("#quantity-list option:nth-of-type(6)").text("500").val(500);
+      $("#quantity-list option:nth-of-type(7)").text("1000").val(1000);
+      $("#quantity-list option:nth-of-type(8)").text("2000").val(2000);
+      $("#quantity-list option:nth-of-type(9)").text("3000").val(3000);
+      $("#quantity-list").append("<option value=5000>5,000</option>");
+    }
 
-  bumperQuantities();
+    bumperQuantities();
 
-    // If 7.5 X 3.75
-    if(stickerSize == 1){
-      if(stickerQuantity == 10){
-        var stickerPrice = 25;
+      // If 7.5 X 3.75
+      if(stickerSize == 1){
+        switch(stickerQuantity){
+          case 10:
+            stickerPrice = 25;
+            break;
+          case 50:
+            stickerPrice = 95;
+            break;
+          case 100:
+            stickerPrice = 135;
+            break;
+          case 200:
+            stickerPrice = 200;
+            break;
+          case 300:
+            stickerPrice = 275;
+            break;
+          case 500:
+            stickerPrice = 395;
+            break;
+          case 1000:
+            stickerPrice = 665;
+            break;
+          case 2000:
+            stickerPrice = 1135;
+            break;
+          case 3000:
+            stickerPrice = 1590;
+            break;
+          case 5000:
+            stickerPrice = 2605;
+            break;
+        }
       }
-      else if(stickerQuantity == 50){
-        var stickerPrice = 95;
+      // If 11.5 X 3
+      else if(stickerSize == 2){
+        switch(stickerQuantity){
+          case 10:
+            stickerPrice = 30;
+            break;
+          case 50:
+            stickerPrice = 100;
+            break;
+          case 100:
+            stickerPrice = 150;
+            break;
+          case 200:
+            stickerPrice = 235;
+            break;
+          case 300:
+            stickerPrice = 315;
+            break;
+          case 500:
+            stickerPrice = 450;
+            break;
+          case 1000:
+            stickerPrice = 770;
+            break;
+          case 2000:
+            stickerPrice = 1325;
+            break;
+          case 3000:
+            stickerPrice = 1925;
+            break;
+          case 5000:
+            stickerPrice = 3160;
+            break;
+        }
       }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 135;
+      // If 15 X 3.75
+      else if(stickerSize == 3){
+        switch(stickerQuantity){
+          case 10:
+            stickerPrice = 35;
+            break;
+          case 50:
+            stickerPrice = 130;
+            break;
+          case 100:
+            stickerPrice = 205;
+            break;
+          case 200:
+            stickerPrice = 330;
+            break;
+          case 300:
+            stickerPrice = 440;
+            break;
+          case 500:
+            stickerPrice = 650;
+            break;
+          case 1000:
+            stickerPrice = 1115;
+            break;
+          case 2000:
+            stickerPrice = 2065;
+            break;
+          case 3000:
+            stickerPrice = 3065;
+            break;
+          case 5000:
+            stickerPrice = 5065;
+            break;
+        }
       }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 200;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 275;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 395;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 665;
-      }
-      else if(stickerQuantity == 2000){
-        var stickerPrice = 1135;
-      }
-      else if(stickerQuantity == 3000){
-        var stickerPrice = 1590;
-      }
-      else if(stickerQuantity == 5000){
-        var stickerPrice = 2605;
-      }
-    }
-    // If 11.5 X 3
-    else if(stickerSize == 2){
-      if(stickerQuantity == 10){
-        var stickerPrice = 30;
-      }
-      else if(stickerQuantity == 50){
-        var stickerPrice = 100;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 150;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 235;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 315;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 450;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 770;
-      }
-      else if(stickerQuantity == 2000){
-        var stickerPrice = 1325;
-      }
-      else if(stickerQuantity == 3000){
-        var stickerPrice = 1925;
-      }
-      else if(stickerQuantity == 5000){
-        var stickerPrice = 3160;
-      }
-    }
-    // If 15 X 3.75
-    else if(stickerSize == 3){
-      if(stickerQuantity == 10){
-        var stickerPrice = 35;
-      }
-      else if(stickerQuantity == 50){
-        var stickerPrice = 130;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 205;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 330;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 440;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 650;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 1115;
-      }
-      else if(stickerQuantity == 2000){
-        var stickerPrice = 2065;
-      }
-      else if(stickerQuantity == 3000){
-        var stickerPrice = 3065;
-      }
-      else if(stickerQuantity == 5000){
-        var stickerPrice = 5065;
-      }
-    }
   }
   //end Bumper options
 
@@ -626,74 +666,80 @@ function stickerPriceCalculator(){
     }
     // If 4 X 4
     if(stickerSize == 1){
-      if(stickerQuantity == 10){
-        var stickerPrice = 35;
-      }
-      else if(stickerQuantity == 50){
-        var stickerPrice = 100;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 145;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 235;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 335;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 525;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 1000;
+      switch(stickerQuantity){
+        case 10:
+          stickerPrice = 35;
+          break;
+        case 50:
+          stickerPrice = 100;
+          break;
+        case 100:
+          stickerPrice = 145;
+          break;
+        case 200:
+          stickerPrice = 235;
+          break;
+        case 300:
+          stickerPrice = 335;
+          break;
+        case 500:
+          stickerPrice = 525;
+          break;
+        case 1000:
+          stickerPrice = 1000;
+          break;
       }
     }
     // If 5 X 5
     if(stickerSize == 2){
-      if(stickerQuantity == 10){
-        var stickerPrice = 45;
-      }
-      else if(stickerQuantity == 50){
-        var stickerPrice = 120;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 190;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 335;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 480;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 770;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 1495;
+      switch(stickerQuantity){
+        case 10:
+          stickerPrice = 45;
+          break;
+        case 50:
+          stickerPrice = 120;
+          break;
+        case 100:
+          stickerPrice = 190;
+          break;
+        case 200:
+          stickerPrice = 335;
+          break;
+        case 300:
+          stickerPrice = 480;
+          break;
+        case 500:
+          stickerPrice = 770;
+          break;
+        case 1000:
+          stickerPrice = 1495;
+          break;
       }
     }
     // If 6 X 6
     if(stickerSize == 3){
-      if(stickerQuantity == 10){
-        var stickerPrice = 50;
-      }
-      else if(stickerQuantity == 50){
-        var stickerPrice = 150;
-      }
-      else if(stickerQuantity == 100){
-        var stickerPrice = 250;
-      }
-      else if(stickerQuantity == 200){
-        var stickerPrice = 455;
-      }
-      else if(stickerQuantity == 300){
-        var stickerPrice = 665;
-      }
-      else if(stickerQuantity == 500){
-        var stickerPrice = 1075;
-      }
-      else if(stickerQuantity == 1000){
-        var stickerPrice = 2100;
+      switch(stickerQuantity){
+        case 10:
+          stickerPrice = 50;
+          break;
+        case 50:
+          stickerPrice = 150;
+          break;
+        case 100:
+          stickerPrice = 250;
+          break;
+        case 200:
+          stickerPrice = 455;
+          break;
+        case 300:
+          stickerPrice = 665;
+          break;
+        case 500:
+          stickerPrice = 1075;
+          break;
+        case 1000:
+          stickerPrice = 2100;
+          break;
       }
     }
   }
