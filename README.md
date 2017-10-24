@@ -27,7 +27,7 @@ if (windowSize.matches) {
 I wanted an option that was easier to navigate on a small screen, so if the
 viewport width is narrower than 789px, the table is replaced with dropdown
 options. Unfortunately, since the price values for each quantity/color
-option don't follow an exact formula, this takes a lot of if/else statements.
+option don't follow an exact formula, this takes a lot of switch statements.
 If you use this general functionality on a project, I would recommend generating
 the price values dynamically.
 
@@ -36,16 +36,18 @@ else{
   function printingCalculator(){
     var printColors = $("#color-list").val();
     var quantityText = $("#printing-quantity-list option:selected").text();
-    var quantity = quantityText.substring(0, quantityText.indexOf('-'));
+    var quantityNumber = quantityText.substring(0, quantityText.indexOf('-'));
+    var quantity = parseInt(quantityNumber);
     var colorPrice;
 
     if(printColors == 1){
-      if(quantity == 12){
-        colorPrice = 2.5;
-      }
-      else if(quantity == 30){
-        colorPrice = 1.5;
-      }
+      switch(quantity){
+        case 12:
+          colorPrice = 2.5;
+          break;
+        case 30:
+          colorPrice = 1.5;
+          break;
       //And so on...
     }
   }
