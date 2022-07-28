@@ -6,6 +6,8 @@ Price Calculator
 Javascript code enabling the user to receive a price quote after selecting a
 number of options.
 
+<a href="https://codepen.io/jeffbass/pen/ZxdmLz">View in action</a>
+
 ## Code Example
 
 Combining checkbox values with a table of selectable quantity values, the
